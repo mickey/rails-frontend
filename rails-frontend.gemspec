@@ -25,16 +25,16 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
-    "VERSION",
     "bin/rails-frontend",
     "lib/rails-frontend.rb",
     "lib/rails-frontend/cli.rb",
     "lib/rails-frontend/controller.rb",
+    "lib/rails-frontend/version.rb",
+    "rails-frontend.gemspec",
     "template/.bowerrc",
     "template/.ruby-version",
     "template/Gemfile",
     "template/Guardfile",
-    "template/Procfile",
     "template/Rakefile",
     "template/app.rb",
     "template/assets/javascripts/application.js.coffee",
@@ -59,7 +59,6 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<clamp>, [">= 0"])
       s.add_runtime_dependency(%q<tilt>, [">= 0"])
-      s.add_runtime_dependency(%q<pry>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, ["= 4.1.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
@@ -69,7 +68,6 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<clamp>, [">= 0"])
       s.add_dependency(%q<tilt>, [">= 0"])
-      s.add_dependency(%q<pry>, [">= 0"])
       s.add_dependency(%q<activesupport>, ["= 4.1.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
@@ -80,7 +78,6 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<clamp>, [">= 0"])
     s.add_dependency(%q<tilt>, [">= 0"])
-    s.add_dependency(%q<pry>, [">= 0"])
     s.add_dependency(%q<activesupport>, ["= 4.1.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
