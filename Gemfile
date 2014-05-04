@@ -2,7 +2,6 @@ source "http://rubygems.org"
 
 gem "clamp"
 gem "tilt"
-gem 'pry'
 gem 'activesupport', '4.1.0'
 
 group :development do

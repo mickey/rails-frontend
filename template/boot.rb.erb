@@ -9,6 +9,7 @@ Bundler.require(:default, Rails.env.to_sym)
 
 module <%= name.camelize %>; class Application < Rails::Application; end; end
 
+require 'rails-frontend/controller'
 require './app'
 
 if Rails.env == "development"

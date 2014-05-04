@@ -1,4 +1,4 @@
-module FrontendRails
+module RailsFrontend
   class Controller < ActionController::Base
     layout 'layout'
 

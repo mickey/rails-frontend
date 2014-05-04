@@ -11,6 +11,10 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'rails-frontend/version'
+
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.name = "rails-frontend"
@@ -21,6 +25,8 @@ Jeweler::Tasks.new do |gem|
   gem.email = "mbensoussan.is@gmail.com"
   gem.authors = ["Michael Bensoussan"]
   gem.executables = ['rails-frontend']
+  gem.require_paths = ["lib"]
+  gem.version = RailsFrontend::VERSION
 end
 Jeweler::RubygemsDotOrgTasks.new
 

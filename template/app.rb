@@ -1,10 +1,4 @@
-class Controller < ActionController::Base
-  layout 'layout'
-
-  before_filter do
-    prepend_view_path 'views'
-  end
-
+class Controller < RailsFrontend::Controller
   def index
   end
 end
