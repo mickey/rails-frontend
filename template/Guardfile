@@ -1,0 +1,23 @@
+guard 'livereload' do
+  watch('views/index.haml')
+  watch(%r{views/.+\.(erb|haml)$})
+  watch(%r{views/layouts/.+\.(erb|haml)$})
+  watch(%r{vendor/.+\.(js|css)$})
+  watch(%r{assets/.+\.(js|css|coffee|scss)$})
+end
+
+guard 'bower' do
+  watch('bower.json')
+end
+
+guard :bundler do
+  watch('Gemfile')
+end
+
+guard 'rails', daemon: true, pid_file: 'rack.pid', CLI: 'bundle exec rackup -p 3000 -s thin -P rack.pid' do
+  watch('Gemfile.lock')
+  watch('config.ru')
+  watch('boot.rb')
+  watch('app.rb')
+  callback(:restart_done) {  Guard.plugins.find {|p| p.class == LiveReload}.reactor.reload_browser(["whatever"]) }
+end

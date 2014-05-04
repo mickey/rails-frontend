@@ -1,0 +1,48 @@
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __FILE__)
+require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
+
+require "rails"
+%w(action_view action_controller sprockets active_support).each do |framework|
+  require "#{framework}/railtie"
+end
+Bundler.require(:default, Rails.env.to_sym)
+
+module <%= name.camelize %>; class Application < Rails::Application; end; end
+
+require './app'
+
+if Rails.env == "development"
+  Rails.application.configure do
+    config.cache_classes = false
+    config.eager_load = false
+    config.consider_all_requests_local       = true
+    config.action_controller.perform_caching = false
+    config.active_support.deprecation = :log
+    config.assets.debug = true
+    config.assets.raise_runtime_errors = true
+    config.assets.paths << Rails.root.join("assets").to_s
+    config.assets.paths << Rails.root.join("assets", "stylesheets").to_s
+    config.assets.paths << Rails.root.join("assets", "javascripts").to_s
+    config.assets.precompile += %w( /(?:\/|\\|\A).*\.(css|js|scss|sass|coffee)$/ )
+    config.serve_static_assets = true
+    config.secret_key_base = 'secret'
+    config.session_store :cookie_store, key: '****************************************'
+  end
+elsif Rails.env == "production"
+  Rails.application.configure do
+    config.eager_load = true
+    config.i18n.available_locales = [:fr]
+    config.cache_classes = true
+    config.consider_all_requests_local       = false
+    config.action_controller.perform_caching = true
+    config.serve_static_assets = true
+    config.assets.compress = true
+    config.assets.js_compressor = Uglifier.new(copyright: true)
+    config.assets.compile = false
+    config.assets.digest = true
+    config.assets.precompile += %w( /(?:\/|\\|\A).*\.(css|js|scss|sass|coffee)$/ )
+    config.secret_key_base = 'secret'
+  end
+end
+
+Rails.application.initialize!

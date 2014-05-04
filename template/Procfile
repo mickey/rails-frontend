@@ -1,0 +1,2 @@
+rails: bundle exec rackup -p 3000 -s thin
+guard: bundle exec guard

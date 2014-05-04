@@ -1,0 +1,28 @@
+source 'https://rubygems.org'
+
+# Update bundler to > 1.2 with `gem update bundler` to get this working
+ruby '2.1.1'
+
+gem 'rails', '4.1.0'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'jquery-rails'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'haml-rails'
+gem 'sass-rails'
+
+gem 'thin'
+
+group :development do
+  gem 'better_errors'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'guard', '>= 2.2.2', require: false
+  gem 'guard-livereload'
+  gem 'guard-bower', require: false
+  gem 'guard-bundler', require: false
+  gem 'guard-rails', git: 'git@github.com:mickey/guard-rails.git'
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
+end

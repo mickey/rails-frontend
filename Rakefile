@@ -13,15 +13,14 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "rails-frontend"
   gem.homepage = "http://github.com/mickey/rails-frontend"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Build a static frontend app with rails}
+  gem.description = %Q{Build a static frontend app with rails}
   gem.email = "mbensoussan.is@gmail.com"
   gem.authors = ["Michael Bensoussan"]
-  # dependencies defined in Gemfile
+  gem.executables = ['rails-frontend']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
