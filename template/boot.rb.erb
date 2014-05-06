@@ -13,12 +13,13 @@ require 'rails-frontend/controller'
 require './app'
 
 Rails.application.configure do
-  if Rails.env == "development"
+
+  if Rails.env.development?
     config.consider_all_requests_local = true
     config.assets.debug = true
     config.assets.raise_runtime_errors = true
     config.middleware.use Rack::LiveReload
-  elsif Rails.env == "production"
+  elsif Rails.env.production?
     config.consider_all_requests_local = false
     config.assets.compress = true
     config.assets.js_compressor = Uglifier.new(copyright: true)
