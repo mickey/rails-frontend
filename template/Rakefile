@@ -16,7 +16,7 @@ task :dist do
   sleep(3)
 
   puts "scrap the website..."
-  `wget --recursive --page-requisites --html-extension --convert-links ---no-host-directories --domains localhost -P dist/ localhost:3002`
+  `wget --recursive --page-requisites --html-extension --convert-links --no-host-directories --domains localhost -P dist/ localhost:3002`
 
   puts "killing the server..."
   `kill \`cat rack-dist.pid\``
