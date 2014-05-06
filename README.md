@@ -62,7 +62,8 @@ Your website, including all assets will be copied in `dist/`.
 
 This is a prototype coded for a talk I gave at paris.rb.
 If you're ~~crazy~~ adventurous enough to test this, please take the tiem to give me some feedback.
-== Contributing to rails-frontend
+
+## Contributing to rails-frontend
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -72,7 +73,7 @@ If you're ~~crazy~~ adventurous enough to test this, please take the tiem to giv
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2014 Michael Bensoussan. See LICENSE.txt for
 further details.
