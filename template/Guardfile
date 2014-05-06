@@ -1,7 +1,5 @@
 guard 'livereload' do
-  watch('views/index.haml')
   watch(%r{views/.+\.(erb|haml)$})
-  watch(%r{views/layouts/.+\.(erb|haml)$})
   watch(%r{assets/.+\.(js|css|coffee|scss)$})
 end
 

@@ -12,38 +12,29 @@ module <%= name.camelize %>; class Application < Rails::Application; end; end
 require 'rails-frontend/controller'
 require './app'
 
-if Rails.env == "development"
-  Rails.application.configure do
-    config.cache_classes = false
-    config.eager_load = false
-    config.consider_all_requests_local       = true
-    config.action_controller.perform_caching = false
-    config.active_support.deprecation = :log
+Rails.application.configure do
+  if Rails.env == "development"
+    config.consider_all_requests_local = true
     config.assets.debug = true
     config.assets.raise_runtime_errors = true
-    config.assets.paths << Rails.root.join("assets").to_s
-    config.assets.paths << Rails.root.join("assets", "stylesheets").to_s
-    config.assets.paths << Rails.root.join("assets", "javascripts").to_s
-    config.assets.precompile += %w( /(?:\/|\\|\A).*\.(css|js|scss|sass|coffee)$/ )
-    config.serve_static_assets = true
-    config.secret_key_base = 'secret'
-    config.session_store :cookie_store, key: '****************************************'
-  end
-elsif Rails.env == "production"
-  Rails.application.configure do
-    config.eager_load = true
-    config.i18n.available_locales = [:fr]
-    config.cache_classes = true
-    config.consider_all_requests_local       = false
-    config.action_controller.perform_caching = true
-    config.serve_static_assets = true
+  elsif Rails.env == "production"
+    config.consider_all_requests_local = false
     config.assets.compress = true
     config.assets.js_compressor = Uglifier.new(copyright: true)
     config.assets.compile = false
     config.assets.digest = true
-    config.assets.precompile += %w( /(?:\/|\\|\A).*\.(css|js|scss|sass|coffee)$/ )
-    config.secret_key_base = 'secret'
   end
+
+  config.cache_classes = false
+  config.eager_load = false
+  config.action_controller.perform_caching = false
+  config.active_support.deprecation = :log
+  config.assets.paths << Rails.root.join("assets").to_s
+  config.assets.paths.push *Dir["#{Rails.root.join('assets')}/*/"]
+  config.assets.precompile += %w( /(?:\/|\\|\A).*\.(css|js|scss|sass|coffee)$/ )
+  config.serve_static_assets = true
+  config.secret_key_base = 'secret'
+  config.session_store :cookie_store, key: '****************************************'
 end
 
 Rails.application.initialize!

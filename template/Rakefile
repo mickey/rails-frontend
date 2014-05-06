@@ -1,4 +1,4 @@
-require File.expand_path('../app', __FILE__)
+require File.expand_path('../boot', __FILE__)
 require 'sprockets/rails/task'
 
 Rails.application.load_tasks
@@ -16,8 +16,8 @@ task :dist do
   sleep(3)
 
   puts "scrap the website..."
-  `wget --recursive --page-requisites --html-extension --convert-links --domains localhost -P dist/ localhost:3002`
+  `wget --recursive --page-requisites --html-extension --convert-links ---no-host-directories --domains localhost -P dist/ localhost:3002`
 
   puts "killing the server..."
-  `kill \`cat rack.pid\``
+  `kill \`cat rack-dist.pid\``
 end
