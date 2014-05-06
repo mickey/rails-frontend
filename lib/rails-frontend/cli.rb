@@ -7,6 +7,11 @@ require 'active_support/core_ext/string'
 
 module RailsFrontend
   class CLI < Clamp::Command
+    option ["--version", "-v"], :flag, "Show version" do
+      puts "RailsFrontend #{RailsFrontend::VERSION}"
+      exit(0)
+    end
+
     subcommand "new", "Generate a new rails-frontend application" do
       parameter "NAME", "name of your application", attribute_name: :name
 
