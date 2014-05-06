@@ -17,6 +17,7 @@ Rails.application.configure do
     config.consider_all_requests_local = true
     config.assets.debug = true
     config.assets.raise_runtime_errors = true
+    config.middleware.use Rack::LiveReload
   elsif Rails.env == "production"
     config.consider_all_requests_local = false
     config.assets.compress = true
